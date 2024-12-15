@@ -118,3 +118,31 @@ fun ProjectExample(): Project {
         )
     )
 }
+
+fun ProjectExample2(): Project {
+    val projectAssetsList = List(5) {
+        ProjectAsset(
+            uri = URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
+            description = "cover image"
+        )
+    }
+
+    return Project(
+        title = "ADORO I JELLY",
+        votes = 22,
+        description = "SugadgadfsfSDFfasdasdgs.",
+        id = 405,
+        semester = 1,
+        assets = projectAssetsList,
+        groupMembers = listOf(
+            Student(
+                id = 1232,
+                name = "amadsf",
+                biography = "Love playing Valorant. Currently thinking of switching courses.",
+                mood = "Freaky",
+                avatar = URI.create("https://media.gettyimages.com/photos/cristiano-ronaldo-of-portugal-poses-during-the-official-fifa-world-picture-id450555852?k=6&m=450555852&s=612x612&w=0&h=aUh0DVio_ubpFtCVvMv3WLR1MVPQji1sN5PDNKvHCT4=")
+            )
+        )
+    )
+}
+

@@ -78,7 +78,7 @@ fun ProjectDetailScreen(project: Project) {
 
                 // Right side: Project description
                 Column(
-                    //modifier = Modifier.weight(1f)
+                    modifier = Modifier.padding(4.dp)
                         //.fillMaxHeight() // Ensures the description fills the available height
                 ) {
                     //Text(text = "Description:", style = MaterialTheme.typography.titleMedium)
