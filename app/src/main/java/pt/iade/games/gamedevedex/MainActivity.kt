@@ -1,5 +1,6 @@
 package pt.iade.games.gamedevedex
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,6 +22,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 import pt.iade.games.gamedevedex.controllers.StudentController
 import pt.iade.games.gamedevedex.models.Project
 import pt.iade.games.gamedevedex.models.ProjectAsset
@@ -39,7 +42,16 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
+    // Function to handle project selection
+//    fun setSelectedProject(project: Project) {
+//        // Store the selected project in the Singleton
+//        ProjectSingleton.selectedProject = project
+//        // Start the ProjectDetailActivity
+//        ContextCompat.startActivity(Intent(this, ProjectDetailActivity::class.java))
+//    }
 }
+
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -80,6 +92,10 @@ fun MainView() {
                 modifier = Modifier.padding(vertical = 20.dp),
                 project = ProjectExample()
             )
+            ProjectCard(
+                modifier = Modifier.padding(vertical = 20.dp),
+                project = ProjectExample2()
+            )
         }
     }
 }
@@ -93,7 +109,7 @@ fun MainViewPreview() {
 }
 
 fun ProjectExample(): Project {
-    val projectAssetsList = List(5) {
+    val projectAssetsList = List(10) {
         ProjectAsset(
             uri = URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
             description = "cover image"
@@ -128,20 +144,27 @@ fun ProjectExample2(): Project {
     }
 
     return Project(
-        title = "ADORO I JELLY",
-        votes = 22,
-        description = "SugadgadfsfSDFfasdasdgs.",
-        id = 405,
-        semester = 1,
+        title = "Flying Gorilla",
+        votes = 222,
+        description = "in the game flying gorilla, YOU are flying a grorilla trhought a really legnth and preilous journy.",
+        id = 45,
+        semester = 2,
         assets = projectAssetsList,
         groupMembers = listOf(
             Student(
                 id = 1232,
-                name = "amadsf",
-                biography = "Love playing Valorant. Currently thinking of switching courses.",
+                name = "you",
+                biography = "XDXDXDXD.",
                 mood = "Freaky",
                 avatar = URI.create("https://media.gettyimages.com/photos/cristiano-ronaldo-of-portugal-poses-during-the-official-fifa-world-picture-id450555852?k=6&m=450555852&s=612x612&w=0&h=aUh0DVio_ubpFtCVvMv3WLR1MVPQji1sN5PDNKvHCT4=")
-            )
+            ),
+            Student(
+                id = 12332,
+                name = "Me",
+                biography = "Love tranding on the future of third world country. Currently thinking of YOU.",
+                mood = "sadge",
+                avatar = URI.create("https://media.gettyimages.com/photos/cristiano-ronaldo-of-portugal-poses-during-the-official-fifa-world-picture-id450555852?k=6&m=450555852&s=612x612&w=0&h=aUh0DVio_ubpFtCVvMv3WLR1MVPQji1sN5PDNKvHCT4=")
+        )
         )
     )
 }

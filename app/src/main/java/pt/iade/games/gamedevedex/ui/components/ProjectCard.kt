@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import pt.iade.games.gamedevedex.ProjectDetailActivity
+import pt.iade.games.gamedevedex.ProjectSingleton
 import pt.iade.games.gamedevedex.R
 import pt.iade.games.gamedevedex.models.Project
 import pt.iade.games.gamedevedex.models.ProjectAsset
@@ -50,10 +51,12 @@ fun ProjectCard(
     Card(
         modifier = modifier.fillMaxWidth(),
         onClick = {
-            Toast.makeText(context, project.title,
-                Toast.LENGTH_SHORT).show()
-            val intent = Intent(context, ProjectDetailActivity::class.java)
-            context.startActivity(intent)
+//            Toast.makeText(context, project.title,
+//                Toast.LENGTH_SHORT).show()
+//            val intent = Intent(context, ProjectDetailActivity::class.java)
+//            context.startActivity(intent)
+            ProjectSingleton.selectedProject = project
+            context.startActivity(Intent(context, ProjectDetailActivity::class.java))
         }
     ) {
         Box(

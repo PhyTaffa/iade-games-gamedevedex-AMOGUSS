@@ -3,8 +3,10 @@ package pt.iade.games.gamedevedex.ui.components
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -38,11 +40,15 @@ fun ProjectDetailScreen(project: Project) {
             )
         }
     ) { paddingValues ->
+
+        val scrollState = rememberScrollState()
+
         // Main content of the screen
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(16.dp)
+                .verticalScroll(scrollState)
         ) {
             // Display the first image from the assets if available
             project.assets.firstOrNull()?.let { firstAsset ->

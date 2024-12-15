@@ -28,7 +28,14 @@ class ProjectDetailActivity : ComponentActivity() {
 //                        name = "Android",
 //                        modifier = Modifier.padding(innerPadding)
 //                    )
-                    ProjectDetailScreen(ProjectExample())
+                    val project = ProjectSingleton.selectedProject
+                    project?.let {
+                        ProjectDetailScreen(it)
+                    } ?: run {
+                        // Handle case where no project was selected
+                        Text(text = "No project selected")
+                    }
+                    //ProjectDetailScreen(ProjectExample())
                 }
             }
         }
