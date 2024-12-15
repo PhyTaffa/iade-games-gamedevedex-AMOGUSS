@@ -1,5 +1,6 @@
 package pt.iade.games.gamedevedex
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,12 +17,13 @@ import pt.iade.games.gamedevedex.ui.components.ProjectDetailScreen
 import pt.iade.games.gamedevedex.ui.theme.GamedevedexTheme
 
 class ProjectDetailActivity : ComponentActivity() {
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             GamedevedexTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize()) {
 //                    Greeting(
 //                        name = "Android",
 //                        modifier = Modifier.padding(innerPadding)
@@ -43,7 +45,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview(project: Project) {
+fun GreetingPreview() {
     GamedevedexTheme {
         //Greeting("Android")
         ProjectDetailScreen(ProjectExample())
