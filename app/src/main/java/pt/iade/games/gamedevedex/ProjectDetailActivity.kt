@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import pt.iade.games.gamedevedex.models.Project
+import pt.iade.games.gamedevedex.ui.components.ProjectDetailScreen
 import pt.iade.games.gamedevedex.ui.theme.GamedevedexTheme
 
 class ProjectDetailActivity : ComponentActivity() {
@@ -20,10 +22,11 @@ class ProjectDetailActivity : ComponentActivity() {
         setContent {
             GamedevedexTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+//                    Greeting(
+//                        name = "Android",
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
+                    ProjectDetailScreen(ProjectExample())
                 }
             }
         }
@@ -38,11 +41,12 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun GreetingPreview() {
-//    GamedevedexTheme {
-//        Greeting("Android")
-//    }
-//}
+@Preview(showBackground = true)
+@Composable
+fun GreetingPreview(project: Project) {
+    GamedevedexTheme {
+        //Greeting("Android")
+        ProjectDetailScreen(ProjectExample())
+    }
+}
 
