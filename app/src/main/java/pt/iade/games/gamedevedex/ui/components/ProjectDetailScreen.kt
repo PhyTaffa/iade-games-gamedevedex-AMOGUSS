@@ -62,55 +62,56 @@ fun ProjectDetailScreen(project: Project) {
             // Row with Project votes on the left and description on the right
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    //.wrapContentHeight()
+                    //.wrapContentWidth()
                     .padding(vertical = 8.dp)
+
             ) {
                 // Left side: Project votes
-                Column(modifier = Modifier.weight(1f)) {
+                Column(
+                    modifier = Modifier
+                        .align(alignment = Alignment.CenterVertically) // Vertically center the content inside the Column
+                        .padding(4.dp) // Optional: Adds some space between the votes and description
+                ) {
                     Text(text = "Votes: ${project.votes}", style = MaterialTheme.typography.bodyMedium)
                 }
 
                 // Right side: Project description
-                Column(modifier = Modifier.weight(1f)) {
-                    Text(text = "Description:", style = MaterialTheme.typography.titleMedium)
+                Column(
+                    //modifier = Modifier.weight(1f)
+                        //.fillMaxHeight() // Ensures the description fills the available height
+                ) {
+                    //Text(text = "Description:", style = MaterialTheme.typography.titleMedium)
                     Text(text = project.description, style = MaterialTheme.typography.bodyLarge)
                 }
             }
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Row to display all students horizontally
-//            Row(
-//                modifier = Modifier
-//                    .fillMaxWidth()
-//                    //.horizontalArrangement(Arrangement.spacedBy(16.dp)) // Space between students
-//            )
-//            {
-                project.groupMembers.forEach { member ->
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                    ) {
-                        Column {
-                            // Image on the left
-                            Image(
-                                painter = rememberAsyncImagePainter(model = member.avatar),
-                                contentDescription = "Avatar of ${member.name}",
-                                modifier = Modifier
-                                    .size(100.dp)
-                                    .clip(CircleShape)
-                            )
-                        }
-                        Column {
-                            Text(text = "Name: ${member.name}", style = MaterialTheme.typography.bodyMedium)
-                            Text(text = "Biography: ${member.biography}", style = MaterialTheme.typography.bodySmall)
-                            Text(text = "Mood: ${member.mood}", style = MaterialTheme.typography.bodyMedium)
-
-                        }
-                        Spacer(modifier = Modifier.width(16.dp))
+            project.groupMembers.forEach { member ->
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Column {
+                        // Image on the left
+                        Image(
+                            painter = rememberAsyncImagePainter(model = member.avatar),
+                            contentDescription = "Avatar of ${member.name}",
+                            modifier = Modifier
+                                .size(100.dp)
+                                .clip(CircleShape)
+                        )
                     }
+                    Column {
+                        Text(text = "Name: ${member.name}", style = MaterialTheme.typography.bodyMedium)
+                        Text(text = "Biography: ${member.biography}", style = MaterialTheme.typography.bodySmall)
+                        Text(text = "Mood: ${member.mood}", style = MaterialTheme.typography.bodyMedium)
+
+                    }
+                    Spacer(modifier = Modifier.width(16.dp))
                 }
-//            }
+            }
 
             Spacer(modifier = Modifier.height(16.dp))
 
@@ -137,28 +138,28 @@ fun PreviewProjectDetailScreen() {
     val exampleProject = Project(
         id = 1,
         title = "Example Project",
-        description = "This is an example project.",
+        description = "This is an example project.dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
         groupMembers = listOf(
             Student(
                 id = 1,
-                name = "Alice Johnson",
+                name = "AAAAAAAAAAAAAAA",
                 avatar = URI.create("https://example.com/alice_avatar.png"),// change img
-                biography = "Alice loves programming and has a keen interest in mobile development.",
-                mood = "Happy"
+                biography = "Really enjoys android studio and definitely is not threatened to write this.",
+                mood = "Scared"
             ),
             Student(
                 id = 2,
-                name = "Bob Smith",
+                name = "BBBBBBBBBBBBBBB",
                 avatar = URI.create("https://example.com/bob_avatar.png"),
-                biography = "Bob is passionate about game development and enjoys playing chess in his free time.",
-                mood = "Excited"
+                biography = "Believes the earth is flat.",
+                mood = "Imaginative"
             ),
             Student(
                 id = 3,
-                name = "Charlie Davis",
+                name = "CCCCCCCCCCCCCCC",
                 avatar = URI.create("https://example.com/charlie_avatar.png"),
-                biography = "Charlie is a software engineer and a huge fan of machine learning and AI.",
-                mood = "Curious"
+                biography = "Hate majorities and is look at youtube while eating.",
+                mood = "Hate"
             )
         ),
         assets = projectAssetsList,
