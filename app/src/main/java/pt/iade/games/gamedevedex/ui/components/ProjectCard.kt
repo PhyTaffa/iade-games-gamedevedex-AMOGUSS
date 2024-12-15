@@ -34,6 +34,7 @@ import coil3.compose.AsyncImage
 import pt.iade.games.gamedevedex.ProjectDetailActivity
 import pt.iade.games.gamedevedex.R
 import pt.iade.games.gamedevedex.models.Project
+import pt.iade.games.gamedevedex.models.ProjectAsset
 import pt.iade.games.gamedevedex.models.Student
 import java.net.URI
 
@@ -107,6 +108,14 @@ fun ProjectCard(
 @Composable
 @Preview()
 fun ProjectCardPreview() {
+
+    val projectAssetsList = List(5) {
+        ProjectAsset(
+            uri = URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
+            description = "cover image"
+        )
+    }
+
     Column {
         ProjectCard(
             modifier = Modifier.padding(vertical = 20.dp),
@@ -116,10 +125,7 @@ fun ProjectCardPreview() {
                 description = "Super sus.",
                 id = 404,
                 semester = 1,
-                assets = listOf(
-                    URI.create("https://cdn.mobygames.com/screenshots/12341377-among-us-windows-calling-an-emergency-meeting.png"),
-                    URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg")
-                ),
+                assets = projectAssetsList,
                 groupMembers = listOf(
                     Student(
                         id = 123,
@@ -139,10 +145,7 @@ fun ProjectCardPreview() {
                 description = "The best Wii game ever made. Apart from Super Smash Bros.",
                 id = 404,
                 semester = 1,
-                assets = listOf(
-                    URI.create("https://cdn.mobygames.com/screenshots/12341377-among-us-windows-calling-an-emergency-meeting.png"),
-                    URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg")
-                ),
+                assets = projectAssetsList,
                 groupMembers = listOf(
                     Student(
                         id = 123,

@@ -23,6 +23,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import pt.iade.games.gamedevedex.controllers.StudentController
 import pt.iade.games.gamedevedex.models.Project
+import pt.iade.games.gamedevedex.models.ProjectAsset
 import pt.iade.games.gamedevedex.models.Student
 import pt.iade.games.gamedevedex.ui.components.ProjectCard
 import pt.iade.games.gamedevedex.ui.theme.GamedevedexTheme
@@ -92,16 +93,20 @@ fun MainViewPreview() {
 }
 
 fun ProjectExample(): Project {
+    val projectAssetsList = List(5) {
+        ProjectAsset(
+            uri = URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
+            description = "cover image"
+        )
+    }
+
     return Project(
         title = "Among Us",
         votes = 2,
         description = "Super sus.",
         id = 404,
         semester = 1,
-        assets = listOf(
-            URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
-            URI.create("https://cdn.mobygames.com/screenshots/12341377-among-us-windows-calling-an-emergency-meeting.png"),
-        ),
+        assets = projectAssetsList,
         groupMembers = listOf(
             Student(
                 id = 123,

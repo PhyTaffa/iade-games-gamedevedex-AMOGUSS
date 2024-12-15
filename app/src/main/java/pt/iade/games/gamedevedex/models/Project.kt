@@ -6,7 +6,7 @@ data class Project(
     val id: Int,
     val title: String,
     var votes: Int,
-    val assets: List<URI>,
+    val assets: List<ProjectAsset>,
     val description: String,
     val groupMembers: List<Student>,
     val semester: Int
