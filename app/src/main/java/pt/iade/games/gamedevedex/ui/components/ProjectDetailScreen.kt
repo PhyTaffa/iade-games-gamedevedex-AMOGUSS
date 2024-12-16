@@ -48,8 +48,7 @@ fun ProjectDetailScreen(project: Project) {
         // Main content of the screen
         Column(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp)
+                .fillMaxWidth()
                 .verticalScroll(scrollState)
         ) {
             // Display the first image from the assets if available
@@ -59,39 +58,31 @@ fun ProjectDetailScreen(project: Project) {
                         painter = rememberAsyncImagePainter(model = firstAsset.uri),
                         contentDescription = "First asset image",
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .height(360.dp) // Adjust the height as needed
-                            .clip(RoundedCornerShape(8.dp)) // Optional: add rounded corners
+                            .fillMaxWidth() // Take full width
+                            .wrapContentHeight() // Allow dynamic height based on the image's content
+                            .clip(RoundedCornerShape(32.dp)) // Optional: add rounded corners
+                            .aspectRatio(1f) // Optional: Maintain the aspect ratio if needed
                     )
                 }
-                Spacer(modifier = Modifier.height(16.dp)) // Add space after the image
             }
+            // You can add more content here
 
-            // Row with Project votes on the left and description on the right
-            Row(
+            // Column for Project votes
+            Column(
                 modifier = Modifier
-                    //.wrapContentHeight()
-                    //.wrapContentWidth()
+                    .fillMaxWidth() // Ensures the Column takes up the full width
                     .padding(vertical = 8.dp)
-
             ) {
-                // Left side: Project votes
-                Column(
-                    modifier = Modifier
-                        .align(alignment = Alignment.CenterVertically) // Vertically center the content inside the Column
-                        .padding(4.dp) // Optional: Adds some space between the votes and description
-                ) {
-                    Text(text = "Votes: ${project.votes}", style = MaterialTheme.typography.bodyMedium)
-                }
-
-                // Right side: Project description
-                Column(
-                    modifier = Modifier.padding(4.dp)
-                        //.fillMaxHeight() // Ensures the description fills the available height
-                ) {
-                    //Text(text = "Description:", style = MaterialTheme.typography.titleMedium)
-                    Text(text = project.description, style = MaterialTheme.typography.bodyLarge)
-                }
+                Text(
+                    text = "Votes: ${project.votes}", style = MaterialTheme.typography.titleMedium, modifier = Modifier.align(Alignment.End))
+            }
+            // Column for Project description
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth() // Ensures the Column takes up the full width
+                    .padding(vertical = 8.dp)
+            ) {
+                Text(text = project.description, style = MaterialTheme.typography.bodyLarge)
             }
 
             Spacer(modifier = Modifier.height(32.dp))
@@ -118,6 +109,7 @@ fun ProjectDetailScreen(project: Project) {
                     }
                     Column(
                         modifier = Modifier.padding(start = 8.dp)
+                            .align(alignment = Alignment.CenterVertically)
                     ) {
                         Text(text = "Name: ${member.name}", style = MaterialTheme.typography.bodyMedium)
                         Text(text = "Biography: ${member.biography}", style = MaterialTheme.typography.bodySmall)
@@ -130,7 +122,7 @@ fun ProjectDetailScreen(project: Project) {
             }
 
             //from members to asset list
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
             // Assets section
             Text(text = "Assets:", style = MaterialTheme.typography.titleMedium)
