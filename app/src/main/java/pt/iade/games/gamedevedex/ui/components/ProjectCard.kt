@@ -135,7 +135,7 @@ fun ProjectCardPreview() {
                         name = "João Pedro",
                         biography = "Love playing Valorant. Currently thinking of switching courses.",
                         mood = "Lucky",
-                        avatar = URI.create("https://media.gettyimages.com/photos/cristiano-ronaldo-of-portugal-poses-during-the-official-fifa-world-picture-id450555852?k=6&m=450555852&s=612x612&w=0&h=aUh0DVio_ubpFtCVvMv3WLR1MVPQji1sN5PDNKvHCT4=")
+                        avatar = (R.drawable.filippo)
                     )
                 )
             )
@@ -155,7 +155,7 @@ fun ProjectCardPreview() {
                         name = "João Pedro",
                         biography = "Love playing Valorant. Currently thinking of switching courses.",
                         mood = "Lucky",
-                        avatar = URI.create("https://media.gettyimages.com/photos/cristiano-ronaldo-of-portugal-poses-during-the-official-fifa-world-picture-id450555852?k=6&m=450555852&s=612x612&w=0&h=aUh0DVio_ubpFtCVvMv3WLR1MVPQji1sN5PDNKvHCT4=")
+                        avatar = (R.drawable.filippo)
                     )
                 )
             )

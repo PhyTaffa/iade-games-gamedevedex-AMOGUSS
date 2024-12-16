@@ -22,6 +22,8 @@ import pt.iade.games.gamedevedex.models.Student
 import pt.iade.games.gamedevedex.ui.AssetItem
 import java.net.URI
 import androidx.compose.material3.*
+import androidx.compose.ui.res.painterResource
+import pt.iade.games.gamedevedex.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -102,7 +104,11 @@ fun ProjectDetailScreen(project: Project) {
                     Column {
                         // Image on the left
                         Image(
-                            painter = rememberAsyncImagePainter(model = member.avatar),
+                            painter = rememberAsyncImagePainter(
+                                model = member.avatar,
+                                placeholder = painterResource(R.drawable.filippo),
+                                error = painterResource(R.drawable.placeholder_cover_image)
+                            ),
                             contentDescription = "Avatar of ${member.name}",
                             modifier = Modifier
                                 .size(100.dp)
@@ -115,8 +121,9 @@ fun ProjectDetailScreen(project: Project) {
                         Text(text = "Mood: ${member.mood}", style = MaterialTheme.typography.bodyMedium)
 
                     }
-                    Spacer(modifier = Modifier.width(16.dp))
+
                 }
+                Spacer(modifier = Modifier.width(32.dp))
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -149,21 +156,21 @@ fun PreviewProjectDetailScreen() {
             Student(
                 id = 1,
                 name = "AAAAAAAAAAAAAAA",
-                avatar = URI.create("https://example.com/alice_avatar.png"),// change img
+                avatar = (R.drawable.filippo),// change img
                 biography = "Really enjoys android studio and definitely is not threatened to write this.",
                 mood = "Scared"
             ),
             Student(
                 id = 2,
                 name = "BBBBBBBBBBBBBBB",
-                avatar = URI.create("https://example.com/bob_avatar.png"),
+                avatar = (R.drawable.dito),
                 biography = "Believes the earth is flat.",
                 mood = "Imaginative"
             ),
             Student(
                 id = 3,
                 name = "CCCCCCCCCCCCCCC",
-                avatar = URI.create("https://example.com/charlie_avatar.png"),
+                avatar = (R.drawable.konnie),
                 biography = "Hate majorities and is look at youtube while eating.",
                 mood = "Hate"
             )

@@ -42,13 +42,6 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-    // Function to handle project selection
-//    fun setSelectedProject(project: Project) {
-//        // Store the selected project in the Singleton
-//        ProjectSingleton.selectedProject = project
-//        // Start the ProjectDetailActivity
-//        ContextCompat.startActivity(Intent(this, ProjectDetailActivity::class.java))
-//    }
 }
 
 
@@ -109,7 +102,7 @@ fun MainViewPreview() {
 }
 
 fun ProjectExample(): Project {
-    val projectAssetsList = List(10) {
+    val projectAssetsList = List(5) {
         ProjectAsset(
             uri = URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
             description = "cover image"
@@ -117,20 +110,16 @@ fun ProjectExample(): Project {
     }
 
     return Project(
-        title = "Among Us",
-        votes = 2,
-        description = "Super sus.",
-        id = 404,
-        semester = 1,
+        title = "Unbox the Truth",
+        votes = 17,
+        description = "Unbox the Truth is a 2D puzzle-platformer where players rotate the world to navigate obstacles as a conscious cardboard box, blending physics-based challenges, strategy, and customization through a companion app.",
+        id = 44,
+        semester = 3,
         assets = projectAssetsList,
         groupMembers = listOf(
-            Student(
-                id = 123,
-                name = "João Pedro",
-                biography = "Love playing Valorant. Currently thinking of switching courses.",
-                mood = "Lucky",
-                avatar = URI.create("https://media.gettyimages.com/photos/cristiano-ronaldo-of-portugal-poses-during-the-official-fifa-world-picture-id450555852?k=6&m=450555852&s=612x612&w=0&h=aUh0DVio_ubpFtCVvMv3WLR1MVPQji1sN5PDNKvHCT4=")
-            )
+            StudentD(),
+            StudentF(),
+            StudentK(),
         )
     )
 }
@@ -156,16 +145,46 @@ fun ProjectExample2(): Project {
                 name = "you",
                 biography = "XDXDXDXD.",
                 mood = "Freaky",
-                avatar = URI.create("https://media.gettyimages.com/photos/cristiano-ronaldo-of-portugal-poses-during-the-official-fifa-world-picture-id450555852?k=6&m=450555852&s=612x612&w=0&h=aUh0DVio_ubpFtCVvMv3WLR1MVPQji1sN5PDNKvHCT4=")
+                avatar = (R.drawable.filippo)
             ),
             Student(
                 id = 12332,
                 name = "Me",
                 biography = "Love tranding on the future of third world country. Currently thinking of YOU.",
                 mood = "sadge",
-                avatar = URI.create("https://media.gettyimages.com/photos/cristiano-ronaldo-of-portugal-poses-during-the-official-fifa-world-picture-id450555852?k=6&m=450555852&s=612x612&w=0&h=aUh0DVio_ubpFtCVvMv3WLR1MVPQji1sN5PDNKvHCT4=")
+                avatar = (R.drawable.dito)
         )
         )
+    )
+}
+
+fun StudentF(): Student{
+    return Student(
+        id = 1,
+        name = "Filippo",
+        avatar = (R.drawable.filippo),
+        biography = "A reformed ex-mafia member, now develops video games, channeling his past into storytelling and themes of redemption.",
+        mood = ":^)",
+    )
+}
+
+fun StudentD(): Student{
+    return Student(
+        id = 2,
+        name = "Dito",
+        avatar = (R.drawable.dito),
+        biography = "A reformed African American ex-gang member battles past drug addiction, turning struggles into inspiration and creating a path to redemption.",
+        mood = "Fentanyl",
+    )
+}
+
+fun StudentK(): Student{
+    return Student(
+        id = 3,
+        name = "Konstantine",
+        avatar = (R.drawable.konnie),
+        biography = "German.",
+        mood = "German",
     )
 }
 
