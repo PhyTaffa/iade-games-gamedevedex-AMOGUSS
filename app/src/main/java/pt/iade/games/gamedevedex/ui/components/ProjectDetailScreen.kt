@@ -60,7 +60,7 @@ fun ProjectDetailScreen(project: Project) {
                         contentDescription = "First asset image",
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(200.dp) // Adjust the height as needed
+                            .height(360.dp) // Adjust the height as needed
                             .clip(RoundedCornerShape(8.dp)) // Optional: add rounded corners
                     )
                 }
@@ -94,12 +94,13 @@ fun ProjectDetailScreen(project: Project) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(32.dp))
 
             project.groupMembers.forEach { member ->
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
+                        .padding(top = 8.dp, bottom = 8.dp)
                 ) {
                     Column {
                         // Image on the left
@@ -115,17 +116,20 @@ fun ProjectDetailScreen(project: Project) {
                                 .clip(CircleShape)
                         )
                     }
-                    Column {
+                    Column(
+                        modifier = Modifier.padding(start = 8.dp)
+                    ) {
                         Text(text = "Name: ${member.name}", style = MaterialTheme.typography.bodyMedium)
                         Text(text = "Biography: ${member.biography}", style = MaterialTheme.typography.bodySmall)
                         Text(text = "Mood: ${member.mood}", style = MaterialTheme.typography.bodyMedium)
-
+//                        Spacer(modifier = Modifier.width(32.dp))
                     }
-
+                    //Spacer(modifier = Modifier.width(32.dp))
                 }
-                Spacer(modifier = Modifier.width(32.dp))
+                //Spacer(modifier = Modifier.width(320.dp))
             }
 
+            //from members to asset list
             Spacer(modifier = Modifier.height(16.dp))
 
             // Assets section
@@ -144,7 +148,7 @@ fun ProjectDetailScreen(project: Project) {
 fun PreviewProjectDetailScreen() {
     val projectAssetsList = List(5) {
         ProjectAsset(
-            uri = URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
+            uri = R.drawable.placeholder_cover_image,
             description = "cover image"
         )
     }

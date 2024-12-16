@@ -102,12 +102,35 @@ fun MainViewPreview() {
 }
 
 fun ProjectExample(): Project {
-    val projectAssetsList = List(5) {
+//    val projectAssetsList = List(5) {
+//        ProjectAsset(
+//            uri = URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
+//            description = "cover image"
+//        )
+//    }
+
+    val projectAssetsList = listOf(
         ProjectAsset(
-            uri = URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
-            description = "cover image"
+            uri = (R.drawable.gamecover),
+            description = "Gamer Cover."
+        ),
+        ProjectAsset(
+            uri = (R.drawable.pick1),
+            description = "Type of artistic ideas we are aming for."
+        ),
+        ProjectAsset(
+            uri = (R.drawable.pick2),
+            description = "Usage of pendolum-like swing."
+        ),
+        ProjectAsset(
+            uri = (R.drawable.pick3),
+            description = "Lighting."
+        ),
+        ProjectAsset(
+            uri = (R.drawable.pick4),
+            description = "Mind boggling effect fo world rotation."
         )
-    }
+    )
 
     return Project(
         title = "Unbox the Truth",
@@ -127,32 +150,32 @@ fun ProjectExample(): Project {
 fun ProjectExample2(): Project {
     val projectAssetsList = List(5) {
         ProjectAsset(
-            uri = URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
-            description = "cover image"
+            uri = (R.drawable.dkc_gnawty),
+            description = "self-explanatory"
         )
     }
 
     return Project(
-        title = "Flying Gorilla",
+        title = "Gnawty the Beaver",
         votes = 222,
-        description = "in the game flying gorilla, YOU are flying a grorilla trhought a really legnth and preilous journy.",
+        description = "In Gnawty the Beaver, play as a mischievous beaver named Gnawty who gnaws through everything in sight. After each gnaw, Gnawty strikes a hilarious dumbfounded pose, adding humor to this whimsical, chaotic adventure!",
         id = 45,
         semester = 2,
         assets = projectAssetsList,
         groupMembers = listOf(
             Student(
                 id = 1232,
-                name = "you",
-                biography = "XDXDXDXD.",
-                mood = "Freaky",
-                avatar = (R.drawable.filippo)
+                name = "Gnawty",
+                biography = "gnaw gnaw.",
+                mood = "Gnaw",
+                avatar = (R.drawable.dkc_gnawty)
             ),
             Student(
                 id = 12332,
-                name = "Me",
-                biography = "Love tranding on the future of third world country. Currently thinking of YOU.",
-                mood = "sadge",
-                avatar = (R.drawable.dito)
+                name = "Nelior",
+                biography = "Loves betting on the future of third world country. Currently thinking of failing you.",
+                mood = "Currently playing the hot coffee mod",
+                avatar = (R.drawable.nejior2)
         )
         )
     )

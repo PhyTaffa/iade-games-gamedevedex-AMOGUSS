@@ -65,11 +65,11 @@ fun ProjectCard(
                 .fillMaxWidth()
         ) {
             AsyncImage(
-                model = project.assets[0].toString(),
-                placeholder = painterResource(R.drawable.placeholder_cover_image),
-                contentDescription = "Cover image of the game",
-                modifier = Modifier.fillMaxSize(),
-                contentScale = ContentScale.Crop
+                model = project.assets[0].uri, // Accessing the URI property
+                placeholder = painterResource(R.drawable.dkc_gnawty), // Placeholder image
+                contentDescription = "Cover image of the game", // Description for accessibility
+                modifier = Modifier.fillMaxSize(), // Fills the parent size
+                contentScale = ContentScale.Crop, // Crop the image to fill the container
             )
 
             Column(
@@ -112,9 +112,15 @@ fun ProjectCard(
 @Preview()
 fun ProjectCardPreview() {
 
-    val projectAssetsList = List(5) {
+    val projectAssetsList = List(2) {
         ProjectAsset(
-            uri = URI.create("https://lutris.net/media/games/screenshots/ss_649e19ff657fa518d4c2b45bed7ffdc4264a4b3a.jpg"),
+            uri = R.drawable.dkc_gnawty,
+            description = "cover image"
+        )
+    }
+    val projectAssetsList2 = List(2) {
+        ProjectAsset(
+            uri = R.drawable.nejior2,
             description = "cover image"
         )
     }
@@ -148,7 +154,7 @@ fun ProjectCardPreview() {
                 description = "The best Wii game ever made. Apart from Super Smash Bros.",
                 id = 404,
                 semester = 1,
-                assets = projectAssetsList,
+                assets = projectAssetsList2,
                 groupMembers = listOf(
                     Student(
                         id = 123,
